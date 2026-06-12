@@ -176,6 +176,12 @@ const TOOLS = [
     tool:PAGES('GML-GUI-Creator'), readme:RAW('GML-GUI-Creator','README.md')
   },
   {
+    icon:'🔀', name:'State Machine Builder', slug:'GML-State-Machine',
+    desc:'Build a finite state machine visually — drop states, connect them with conditions, get clean switch/case GML with proper if/else if/else.',
+    tags:['code','ai','logic'],
+    tool:PAGES('GML-State-Machine'), readme:RAW('GML-State-Machine','README.md')
+  },
+  {
     icon:'🧹', name:'GML Formatter', slug:'GML-formatter',
     desc:'Auto-format GML — fixes missing semicolons (ASI), Allman / K&R styles, safe var handling. Single-file and batch mode.',
     tags:['code','formatting'],
@@ -221,8 +227,14 @@ function openTool(t){
   vtitle.innerHTML = t.name+'<span class="sub">'+t.slug+'</span>';
   vopen.href = t.tool; vopen.style.display='';
   vreadme.style.display='none'; vframe.style.display='';
-  vframe.src = t.tool;
   showViewer();
+  if(location.protocol==='file:'){
+    // file:// blocks loading remote pages into an iframe in many browsers
+    vframe.style.display='none'; vreadme.style.display='block';
+    mdbody.innerHTML='<div class="vstate">This portal is open as a local file.<br>The embedded view works once it\'s hosted (GitHub Pages).<br><br><a href="'+t.tool+'" target="_blank" style="color:var(--accent2)">Open '+escapeHtml(t.name)+' in a new tab ↗</a></div>';
+    return;
+  }
+  vframe.src = t.tool;
 }
 
 async function openReadme(t){
@@ -232,16 +244,18 @@ async function openReadme(t){
   mdbody.innerHTML = '<div class="vstate"><div class="spin"></div><br>Loading README…</div>';
   showViewer();
   const urls = Array.isArray(t.readme)?t.readme:[t.readme];
-  let md=null;
+  let md=null, errs=[];
   for(const u of urls){
-    try{ const r=await fetch(u); if(r.ok){ md=await r.text(); break; } }catch(e){}
+    try{ const r=await fetch(u); if(r.ok){ md=await r.text(); break; } else errs.push(r.status); }catch(e){ errs.push('blocked'); }
   }
   if(md==null){
-    mdbody.innerHTML='<div class="vstate">Couldn\'t load the README.<br><br><a href="'+t.tool+'" style="color:var(--accent2)" target="_blank">Open the tool ↗</a></div>';
+    const fileNote = location.protocol==='file:' ? 'The portal is open as a local file, so the browser blocks fetching the README. It works once hosted on GitHub Pages.' : 'The README couldn\'t be fetched (branch may differ, or the repo has no README yet).';
+    mdbody.innerHTML='<div class="vstate">'+fileNote+'<br><br><a href="https://github.com/GanjaViruss/'+t.slug+'" target="_blank" style="color:var(--accent2)">View '+escapeHtml(t.name)+' on GitHub ↗</a></div>';
     return;
   }
   mdbody.innerHTML = renderMarkdown(md);
 }
+function escapeHtml(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
 // ---- tiny markdown renderer (offline-friendly, no external lib) ----
 function renderMarkdown(src){
