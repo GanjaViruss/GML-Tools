@@ -10,31 +10,17 @@ A growing suite of free, open-source, browser-based tools for GameMaker develope
 
 ## Tools
 
-| Tool | Description |
-|------|-------------|
-| [GML Lengthdir Visualizer](https://github.com/GanjaViruss/GML-Lengthdir-Visualizer) | Visual lengthdir_x/y generator — drop points on a sprite, rotate, get GML |
-| [GML GUI Creator](https://github.com/GanjaViruss/GML-GUI-Creator) | Visual Draw GUI editor — drag elements, get resolution-aware GML |
-| [GML Formatter](https://github.com/GanjaViruss/GML-formatter) | Auto-format GML — ASI, Allman/K&R, safe var handling, batch mode |
+**[Lengthdir Visualizer](https://ganjaviruss.github.io/GML-Lengthdir-Visualizer/)** Drop points on a sprite, move the origin, rotate the whole thing, and get ready-to-paste `lengthdir_x` / `lengthdir_y` GML. Useful for muzzle flashes, held weapons, shells, collision offsets. Anything that needs to stay attached to a sprite at any angle without hardcoding positions per angle.
+
+**[GUI Creator](https://ganjaviruss.github.io/GML-GUI-Creator/)** Lay out your Draw GUI by dragging elements around a virtual screen. Generates clean GML with resolution-aware anchors (`display_get_gui_width` / `height`). Supports text, rectangles, sprites, health bars, circles. You can also paste existing Draw GUI code and it rebuilds it on the canvas.
+
+**[State Machine Builder](https://ganjaviruss.github.io/GML-State-Machine/)** Draw your state machine visually. Drop state boxes, connect them with conditional transitions, set the conditions. Generates a clean `enum` + `switch/case` with correct `if` / `else if` / `else` priority chains. Has a built-in snippet bar with common GML functions to tap and copy. Only useful if you already know GML and understand how a state machine works. It speeds up the tedious part, it does not replace knowing what you are doing.
+
+**[GML Formatter](https://ganjaviruss.github.io/GML-formatter/)** Paste your GML code and it fixes formatting: missing semicolons (ASI), Allman or K&R brace style, safe var deduplication. Batch mode lets you drop a whole folder of `.gml` files and format them all at once.
+
+---
 
 More tools coming.
-
-## Adding a new tool
-
-Drop a new entry into the `TOOLS` array in `index.html`:
-
-```js
-{
-  icon: '💡',
-  name: 'My Tool',
-  slug: 'GML-My-Tool',
-  desc: 'Short description.',
-  tags: ['category'],
-  tool: PAGES('GML-My-Tool'),
-  readme: RAW('GML-My-Tool', 'README.md')
-}
-```
-
-That's it — the tile appears automatically.
 
 ## License
 
