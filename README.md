@@ -4,7 +4,7 @@ A growing set of free, browser-based tools for GameMaker developers. No install,
 
 Each tool was built around real code from my own GameMaker projects, so they reflect how things actually get written in GML, not just theory.
 
-🔗 **[Download the offline build »](https://github.com/GanjaViruss/GML-Tools/releases)** — all tools in one HTML file, works without internet.
+🔗 **[Live demo] (https://ganjaviruss.github.io/GML-Tools/)**
 
 ---
 
