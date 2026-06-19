@@ -4,7 +4,7 @@ A growing set of free, browser-based tools for GameMaker developers. No install,
 
 Each tool was built around real code from my own GameMaker projects, so they reflect how things actually get written in GML, not just theory.
 
-🔗 **[Live demo] (https://ganjaviruss.github.io/GML-Tools/)**
+Everything runs in the browser. Open a tool below, or grab the offline build (one HTML file with all the tools inside) from this repo and run it locally.
 
 ---
 
@@ -16,6 +16,8 @@ Each tool was built around real code from my own GameMaker projects, so they ref
 
 **[State Machine Builder](https://ganjaviruss.github.io/GML-State-Machine/)** Draw your state machine visually. Drop state boxes, connect them with conditional transitions, set the conditions. Generates a clean `enum` + `switch/case` with correct `if` / `else if` / `else` priority chains. Built-in snippet bar with common GML functions to tap and copy. Only useful if you already know GML and how a state machine works — it speeds up the tedious part, it doesn't replace knowing what you're doing.
 
+**[Camera Creator](https://ganjaviruss.github.io/GML-Camera-Creator/)** Build a full camera system — follow, deadzone, screen shake, zoom, plus resolution and aspect-ratio handling with proper GUI scaling. Pick your options, get one `obj_camera` and a clear setup guide. Covers the stuff people usually get stuck on: views vs surfaces vs the GUI layer, keeping pixels sharp, fitting different screens.
+
 **[Cheat Console](https://ganjaviruss.github.io/GML-Cheat-Console/)** Build a full in-game dev console. Type your cheats in plain lines — toggles, set/adjust commands, actions, and a give command that takes an item ID or name — and get one ready script. Paste it once, call three functions. Comes with a built-in setup guide.
 
 **[GML Formatter](https://ganjaviruss.github.io/GML-formatter/)** Paste your GML code and it fixes formatting: missing semicolons (ASI), Allman or K&R brace style, safe var deduplication. Batch mode lets you drop a whole folder of `.gml` files and format them all at once.
@@ -24,17 +26,20 @@ Each tool was built around real code from my own GameMaker projects, so they ref
 
 ## Offline build
 
-All tools are bundled into a single HTML file. Download it, open it in any browser. No server, no internet needed after that. Click a tool to use it right there, or open it in a new tab.
+`GML-Tools-OFFLINE.html` bundles every tool into a single HTML file. Open it in any browser — click a tool to use it right there, or open it in a new tab. No server, no internet needed after that.
 
-The offline build is a snapshot — when a tool gets updated, the bundle is rebuilt. For the always-current version, use the live links above or each tool's own repo.
+It's a snapshot, so when a tool gets updated the bundle is rebuilt. For the always-current version, use the live links above or each tool's own repo.
 
 | Tool | Live | Repo |
 |------|------|------|
 | Lengthdir Visualizer | [open](https://ganjaviruss.github.io/GML-Lengthdir-Visualizer/) | [GitHub](https://github.com/GanjaViruss/GML-Lengthdir-Visualizer) |
 | GUI Creator | [open](https://ganjaviruss.github.io/GML-GUI-Creator/) | [GitHub](https://github.com/GanjaViruss/GML-GUI-Creator) |
 | State Machine Builder | [open](https://ganjaviruss.github.io/GML-State-Machine/) | [GitHub](https://github.com/GanjaViruss/GML-State-Machine) |
+| Camera Creator | [open](https://ganjaviruss.github.io/GML-Camera-Creator/) | [GitHub](https://github.com/GanjaViruss/GML-Camera-Creator) |
 | Cheat Console | [open](https://ganjaviruss.github.io/GML-Cheat-Console/) | [GitHub](https://github.com/GanjaViruss/GML-Cheat-Console) |
 | GML Formatter | [open](https://ganjaviruss.github.io/GML-formatter/) | [GitHub](https://github.com/GanjaViruss/GML-formatter) |
+
+For other projects and games, check my GitHub: **[github.com/GanjaViruss](https://github.com/GanjaViruss)**
 
 ---
 
